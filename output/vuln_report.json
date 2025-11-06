@@ -1,0 +1,14 @@
+{
+  "total_packages": 127,
+  "findings": [],
+  "summary": {
+    "total_vulnerabilities": 0,
+    "by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "unknown": 0
+    }
+  }
+}
