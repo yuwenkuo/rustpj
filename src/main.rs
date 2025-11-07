@@ -1,14 +1,16 @@
 mod extract_zip;
 mod get_lockfile;
 mod scanner;
+mod get_sbom;
 
 use std::path::Path;
 use anyhow::{Context, Result};
 use get_lockfile::get_lockfile;
 use scanner::Scanner;
 use std::env;
+use get_sbom::generate_sbom_from_lockfile;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 获取命令行参数
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {
@@ -25,6 +27,10 @@ fn main() -> Result<()> {
     std::fs::create_dir_all("./output")
         .context("failed to create output directory")?;
 
+    // 获取 sbom 并写入 sbom 文件
+    let sbom_path = "./output/sbom.json";
+    generate_sbom_from_lockfile(&lockfile, sbom_path)?;
+
     // 初始化扫描器（使用本地 advisory DB）
     let scanner = Scanner::new("./data/advisory-db")
         .context("failed to initialize vulnerability scanner")?;
@@ -39,6 +45,9 @@ fn main() -> Result<()> {
         report_path,
         serde_json::to_string_pretty(&report)?,
     ).context("failed to write vulnerability report")?;
+
+    
+    
 
     // 打印扫描统计
     println!("\nScan completed!");
