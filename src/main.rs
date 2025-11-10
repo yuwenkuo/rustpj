@@ -21,7 +21,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let zip_path = &args[1];
     println!("扫描文件: {}", zip_path);
-    let lockfile = get_lockfile(zip_path)?;
+    let discovery = get_lockfile(zip_path)?;
+    let lockfile = &discovery.lockfile;
 
     // 创建输出目录
     std::fs::create_dir_all("./output")
@@ -29,14 +30,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // 获取 sbom 并写入 sbom 文件
     let sbom_path = "./output/sbom.json";
-    generate_sbom_from_lockfile(&lockfile, sbom_path)?;
+    generate_sbom_from_lockfile(lockfile, &discovery.project_root, sbom_path)?;
 
     // 初始化扫描器（使用本地 advisory DB）
     let scanner = Scanner::new("./data/advisory-db")
         .context("failed to initialize vulnerability scanner")?;
 
     // 扫描依赖并生成报告
-    let report = scanner.scan_lockfile(&lockfile)
+    let report = scanner.scan_lockfile(lockfile)
         .context("failed to scan dependencies")?;
 
     // 将报告写入 JSON 文件
@@ -62,11 +63,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("\nDetailed report written to: {}", report_path.display());
 
     // 清理临时文件和目录
-    println!("\n清理临时文件...");
+    println!("\nCleaning temporary files...");
     if let Err(e) = std::fs::remove_dir_all("./tmp") {
-        eprintln!("警告: 清理临时文件失败: {}", e);
+        eprintln!("Warning: failed to clean temporary files: {}", e);
     } else {
-        println!("✓ 临时文件已清理");
+        println!("OK temporary files cleaned");
     }
 
     Ok(())

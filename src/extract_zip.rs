@@ -53,7 +53,8 @@ impl TomlLockExtractor {
                 io::copy(&mut zip_file, &mut output_file)
                     .context(format!("无法写入文件: {}", output_path.display()))?;
 
-                println!("✓ 提取: {} -> {}", file_name, output_path.display());
+                // ASCII-only logging for broader terminal compatibility
+                println!("EXTRACTED: {} -> {}", file_name, output_path.display());
             }
         }
 

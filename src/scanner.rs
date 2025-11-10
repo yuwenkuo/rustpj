@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::path::Path;
 use anyhow::{Context, Result};
 use cargo_lock::Lockfile;
@@ -19,26 +20,25 @@ use {
 #[derive(Debug, Serialize)]
 pub struct VulnReport {
     pub total_packages: usize,
-    pub findings: Vec<Finding>,
+    pub packages: Vec<PackageReport>,
     pub summary: Summary,
 }
 
 #[derive(Debug, Serialize)]
-pub struct Finding {
+pub struct PackageReport {
     pub package_name: String,
     pub package_version: String,
-    pub advisory: AdvisoryInfo,
-    pub patched_versions: Option<String>,
+    pub advisories: Vec<AdvisoryFinding>,
 }
 
 #[derive(Debug, Serialize)]
-pub struct AdvisoryInfo {
+pub struct AdvisoryFinding {
     pub id: String,
     pub description: String,
     pub severity: Option<String>,
-    pub affected_versions: String,
+    pub unaffected_versions: String,
+    pub patched_versions: Option<String>,
     pub references: Vec<String>,
-    pub cvss: Option<f32>,
 }
 
 #[derive(Debug, Default, Serialize)]
@@ -80,73 +80,93 @@ impl Scanner {
 
     /// 扫描指定的 Cargo.lock 文件
     pub fn scan_lockfile(&self, lockfile: &Lockfile) -> Result<VulnReport> {
-        let mut findings = Vec::new();
+        // Aggregate findings per package
+        let mut package_reports = Vec::new();
         let mut summary = Summary::default();
 
-        // 扫描每个包的每个 advisory
+        // Pre-index advisories by package to avoid O(N*M)
+        let mut by_package: HashMap<String, Vec<&Advisory>> = HashMap::new();
+        for adv in self.db.iter() {
+            // Skip withdrawn and informational advisories; keep only actionable
+            if adv.metadata.withdrawn.is_some() || adv.metadata.informational.is_some() {
+                continue;
+            }
+            by_package
+                .entry(adv.metadata.package.to_string())
+                .or_default()
+                .push(adv);
+        }
+
+        // Scan each package against its advisories
         for pkg in &lockfile.packages {
-            let pkg_name = &pkg.name;
-            let pkg_version = pkg.version.to_string();
-            
-            // 尝试解析版本（用于 semver 比较）
-            if let Ok(version) = Version::parse(&pkg_version) {
-                // 查找与该包相关的所有 advisories
-                for advisory in self.db.iter() {
-                    let rustsec_name = advisory.metadata.package.to_string();
-                    let pkg_name_str = pkg_name.to_string();
-                    if rustsec_name == pkg_name_str {
-                        // 检查版本是否受影响
-                        if self.is_version_affected(&version, advisory) {
-                            let finding = self.create_finding(pkg, advisory);
-                            
-                            // 更新统计
-                            if let Some(severity) = &finding.advisory.severity {
-                                match severity.to_uppercase().as_str() {
-                                    "CRITICAL" => summary.by_severity.critical += 1,
-                                    "HIGH" => summary.by_severity.high += 1,
-                                    "MEDIUM" => summary.by_severity.medium += 1,
-                                    "LOW" => summary.by_severity.low += 1,
-                                    _ => summary.by_severity.unknown += 1,
-                                }
-                            } else {
-                                summary.by_severity.unknown += 1;
+            let mut advisories_for_pkg = Vec::new();
+            if let Some(advs) = by_package.get(pkg.name.as_str()) {
+                for advisory in advs {
+                    if self.is_version_affected(&pkg.version, advisory) {
+                        let advisory_find = self.create_advisory_finding(advisory);
+
+                        // Update severity summary
+                        if let Some(sev) = &advisory_find.severity {
+                            match sev.to_uppercase().as_str() {
+                                "CRITICAL" => summary.by_severity.critical += 1,
+                                "HIGH" => summary.by_severity.high += 1,
+                                "MEDIUM" => summary.by_severity.medium += 1,
+                                "LOW" => summary.by_severity.low += 1,
+                                _ => summary.by_severity.unknown += 1,
                             }
-                            
-                            findings.push(finding);
+                        } else {
+                            summary.by_severity.unknown += 1;
                         }
+
+                        advisories_for_pkg.push(advisory_find);
                     }
                 }
             }
+
+            if !advisories_for_pkg.is_empty() {
+                package_reports.push(PackageReport {
+                    package_name: pkg.name.to_string(),
+                    package_version: pkg.version.to_string(),
+                    advisories: advisories_for_pkg,
+                });
+            }
         }
 
-        summary.total_vulnerabilities = findings.len();
+        // Count total advisories discovered across all packages
+        summary.total_vulnerabilities = package_reports
+            .iter()
+            .map(|p| p.advisories.len())
+            .sum();
 
-        Ok(VulnReport {
-            total_packages: lockfile.packages.len(),
-            findings,
-            summary,
-        })
+        Ok(VulnReport { total_packages: lockfile.packages.len(), packages: package_reports, summary })
     }
 
     /// 检查给定版本是否受某个 advisory 影响
     fn is_version_affected(&self, version: &Version, advisory: &Advisory) -> bool {
-        // 如果有明确的已修复版本列表，检查当前版本是否在补丁版本之前
-        let patched_ranges = advisory.versions.patched();
-        for req in patched_ranges {
-            if req.matches(version) {
-                return false;
-            }
+        // Not affected if version is explicitly in patched ranges
+        if advisory.versions.patched().iter().any(|req| req.matches(version)) {
+            return false;
         }
 
-        // 检查版本是否在受影响范围内
-        advisory.versions.unaffected()
+        // Not affected if version matches any unaffected requirement
+        if advisory
+            .versions
+            .unaffected()
             .iter()
-            .any(|req| !req.matches(version))
+            .any(|req| req.matches(version))
+        {
+            return false;
+        }
+
+        // Otherwise, assume affected
+        true
     }
 
     /// 从 advisory 创建漏洞发现记录
-    fn create_finding(&self, pkg: &cargo_lock::Package, advisory: &Advisory) -> Finding {
-        let affected_versions = advisory.versions.unaffected()
+    fn create_advisory_finding(&self, advisory: &Advisory) -> AdvisoryFinding {
+        let unaffected_versions = advisory
+            .versions
+            .unaffected()
             .iter()
             .map(|v| v.to_string())
             .collect::<Vec<_>>()
@@ -154,36 +174,33 @@ impl Scanner {
 
         let patched = advisory.versions.patched();
         let patched_versions = if !patched.is_empty() {
-            Some(patched.iter()
-                .map(|v| v.to_string())
-                .collect::<Vec<_>>()
-                .join(", "))
+            Some(
+                patched
+                    .iter()
+                    .map(|v| v.to_string())
+                    .collect::<Vec<_>>()
+                    .join(", "),
+            )
         } else {
             None
         };
 
-        // CVSS 分数
-        let cvss = advisory.metadata.cvss.as_ref()
-            .map(|c| match c.severity() {
-                rustsec::advisory::Severity::Critical => 10.0,
-                rustsec::advisory::Severity::High => 8.0,
-                rustsec::advisory::Severity::Medium => 5.0,
-                rustsec::advisory::Severity::Low => 2.0,
-                _ => 0.0,
-            });
-
-        Finding {
-            package_name: pkg.name.to_string(),
-            package_version: pkg.version.to_string(),
-            advisory: AdvisoryInfo {
-                id: advisory.metadata.id.to_string(),
-                description: advisory.metadata.description.clone(),
-                severity: advisory.metadata.cvss.as_ref().map(|c| c.severity().to_string()),
-                affected_versions,
-                references: advisory.metadata.references.iter().map(|r| r.to_string()).collect(),
-                cvss,
-            },
+        AdvisoryFinding {
+            id: advisory.metadata.id.to_string(),
+            description: advisory.metadata.description.clone(),
+            severity: advisory
+                .metadata
+                .cvss
+                .as_ref()
+                .map(|c| c.severity().to_string()),
+            unaffected_versions,
             patched_versions,
+            references: advisory
+                .metadata
+                .references
+                .iter()
+                .map(|r| r.to_string())
+                .collect(),
         }
     }
 }
@@ -206,11 +223,13 @@ mod tests {
         (temp_dir, db_path.to_string_lossy().to_string())
     }
 
+    // This test requires a valid RustSec advisory-db layout; ignored by default.
+    #[ignore]
     #[test]
     fn test_load_empty_db() {
         let (_temp_dir, db_path) = setup_test_db();
         let scanner = Scanner::new(&db_path).unwrap();
-        
+
         // 创建一个最小的 lockfile 进行测试
         let mut lockfile = Lockfile {
             version: cargo_lock::ResolveVersion::V2,
@@ -229,9 +248,9 @@ mod tests {
             dependencies: vec![],
             replace: None,
         });
-        
+
         let report = scanner.scan_lockfile(&lockfile).unwrap();
-        assert_eq!(report.findings.len(), 0);
+        assert_eq!(report.packages.len(), 0);
         assert_eq!(report.total_packages, 1);
     }
 

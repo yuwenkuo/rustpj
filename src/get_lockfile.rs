@@ -1,11 +1,17 @@
 use cargo_lock::Lockfile;
-use crate::extract_zip::{TomlLockExtractor};
+use crate::extract_zip::TomlLockExtractor;
 use std::fs;
 use std::process::Command;
 use walkdir::WalkDir;
 use std::path::PathBuf;
 
-pub fn get_lockfile(zip_path: &str) -> Result<Lockfile, anyhow::Error> {
+// Return both the parsed lockfile and the detected project root directory
+pub struct LockDiscovery {
+    pub lockfile: Lockfile,
+    pub project_root: PathBuf,
+}
+
+pub fn get_lockfile(zip_path: &str) -> Result<LockDiscovery, anyhow::Error> {
     let output_dir = "./tmp";
     
     // 确保有一个干净的临时目录
@@ -21,7 +27,11 @@ pub fn get_lockfile(zip_path: &str) -> Result<Lockfile, anyhow::Error> {
         if entry.file_name() == "Cargo.lock" {
             let lock_path = entry.path();
             if let Ok(lockfile) = Lockfile::load(lock_path) {
-                return Ok(lockfile);
+                let project_root = lock_path
+                    .parent()
+                    .map(|p| p.to_path_buf())
+                    .ok_or_else(|| anyhow::anyhow!("Failed to determine project root from Cargo.lock"))?;
+                return Ok(LockDiscovery { lockfile, project_root });
             }
         }
     }
@@ -43,7 +53,7 @@ pub fn get_lockfile(zip_path: &str) -> Result<Lockfile, anyhow::Error> {
 
     // 如果找到项目根目录，尝试生成 lock 文件
     if let Some(root) = project_root {
-        println!("\n提示: 项目中没有 Cargo.lock 文件，正在尝试生成...");
+        println!("\nNote: No Cargo.lock found, attempting to generate offline...");
         
         // 运行 cargo generate-lockfile
         let status = Command::new("cargo")
@@ -56,11 +66,12 @@ pub fn get_lockfile(zip_path: &str) -> Result<Lockfile, anyhow::Error> {
             return Err(anyhow::anyhow!("生成 Cargo.lock 失败，请检查项目依赖配置是否正确"));
         }
 
-        println!("✓ 成功生成 Cargo.lock");
+        println!("OK generated Cargo.lock");
 
         // 尝试加载生成的 lock 文件
         let lock_path = root.join("Cargo.lock");
         return Lockfile::load(&lock_path)
+            .map(|lockfile| LockDiscovery { lockfile, project_root: root })
             .map_err(|e| anyhow::anyhow!("无法加载生成的 Cargo.lock: {}", e));
     }
     

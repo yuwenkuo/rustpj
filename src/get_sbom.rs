@@ -70,14 +70,18 @@ struct LicenseChoice {
     name: Option<String>,
 }
 
-pub fn generate_sbom_from_lockfile(lockfile: &Lockfile, output_path: &str) -> Result<(), Box<dyn std::error::Error>> {
+pub fn generate_sbom_from_lockfile(
+    lockfile: &Lockfile,
+    project_root: &Path,
+    output_path: &str,
+) -> Result<(), Box<dyn std::error::Error>> {
     // 读取并解析 Cargo.lock
     // let lockfile = Lockfile::load(lockfile_path)?;
     
     println!("Fetching license information...");
     
     // 一次性获取所有许可证信息
-    let license_cache = fetch_all_licenses()?;
+    let license_cache = fetch_all_licenses(Some(project_root))?;
     
     println!("Building SBOM...");
     
@@ -96,7 +100,7 @@ pub fn generate_sbom_from_lockfile(lockfile: &Lockfile, output_path: &str) -> Re
         // 从缓存中获取许可证信息
         let licenses = license_cache
             .get(&(name.to_string(), version.clone()))
-            .and_then(|license_str| Some(parse_license_expression(license_str)));
+            .map(|license_str| parse_license_expression(license_str));
         
         components.push(Component {
             component_type: "library".to_string(),
@@ -110,8 +114,13 @@ pub fn generate_sbom_from_lockfile(lockfile: &Lockfile, output_path: &str) -> Re
         // 构建依赖关系
         let mut depends_on = Vec::new();
         for dep in &package.dependencies {
-            // 在 lockfile 中查找依赖的具体版本
-            if let Some(dep_pkg) = lockfile.packages.iter().find(|p| p.name.as_str() == dep.name.as_str()) {
+            // Try to resolve by name; Cargo.lock may contain multiple versions of a crate.
+            // We conservatively include edges by name only in offline mode.
+            if let Some(dep_pkg) = lockfile
+                .packages
+                .iter()
+                .find(|p| p.name.as_str() == dep.name.as_str())
+            {
                 let dep_ref = format!("{}@{}", dep.name.as_str(), dep_pkg.version);
                 depends_on.push(dep_ref);
             }
@@ -153,19 +162,17 @@ pub fn generate_sbom_from_lockfile(lockfile: &Lockfile, output_path: &str) -> Re
     Ok(())
 }
 
-fn fetch_all_licenses() -> Result<HashMap<(String, String), String>, Box<dyn std::error::Error>> {
+fn fetch_all_licenses(current_dir: Option<&Path>) -> Result<HashMap<(String, String), String>, Box<dyn std::error::Error>> {
     let mut license_map = HashMap::new();
-    // println!("Fetching license information...");
-    // 执行 cargo metadata 一次
-    let output = Command::new("cargo")
-        .args(&["metadata", "--format-version=1", "--offline", "--locked"])
-        .output()?;
-    // println!("Fetching license information...");
+    // Try to execute `cargo metadata` in the extracted project root in offline mode.
+    let mut cmd = Command::new("cargo");
+    cmd.args(["metadata", "--format-version=1", "--offline", "--locked"]);
+    if let Some(dir) = current_dir { cmd.current_dir(dir); }
+    let output = cmd.output()?;
     if !output.status.success() {
-        eprintln!("Warning: cargo metadata failed, licenses will not be included");
+        eprintln!("Warning: cargo metadata failed in offline mode, licenses will not be included");
         return Ok(license_map);
     }
-    // println!("Fetching license information...");
     let metadata: serde_json::Value = serde_json::from_slice(&output.stdout)?;
     
     // 遍历所有包并提取许可证
@@ -180,7 +187,6 @@ fn fetch_all_licenses() -> Result<HashMap<(String, String), String>, Box<dyn std
             }
         }
     }
-    
     Ok(license_map)
 }
 
