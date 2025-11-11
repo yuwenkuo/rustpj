@@ -11,6 +11,7 @@
 - 如果项目中没有 Cargo.lock 文件，会尝试自动生成
 - 生成详细的 JSON 格式漏洞报告
 - 扫描完成后自动清理临时文件
+- 支持生产 json 格式的 sbom 文件
 
 ## 使用方法
 
@@ -36,6 +37,8 @@ cargo run -- ./downloads/some-project-main.zip
 - 每个漏洞的详细信息（包名、版本、漏洞描述等）
 
 报告将保存在 `./output/vuln_report.json` 文件中。
+
+工具会生成一个 JSON 格式的sbom 文件，保存在 `./output/sbom.json` 文件中
 
 ## 项目结构
 
