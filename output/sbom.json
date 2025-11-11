@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-11-11T07:01:06.904376+00:00",
+    "timestamp": "2025-11-11T07:11:23.389135+00:00",
     "tools": [
       {
         "vendor": "Custom",
@@ -15,15 +15,15 @@
   "components": [
     {
       "type": "library",
-      "name": "demo_hello",
+      "name": "sample_hello",
       "version": "0.1.0",
-      "purl": "pkg:cargo/demo_hello@0.1.0",
-      "bom-ref": "demo_hello@0.1.0"
+      "purl": "pkg:cargo/sample_hello@0.1.0",
+      "bom-ref": "sample_hello@0.1.0"
     }
   ],
   "dependencies": [
     {
-      "ref": "demo_hello@0.1.0"
+      "ref": "sample_hello@0.1.0"
     }
   ]
 }

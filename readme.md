@@ -26,11 +26,10 @@ cargo run -- ./test/myproject.zip
 
 # 扫描从 GitHub 下载的项目
 cargo run -- ./downloads/some-project-main.zip
-```
 
-```bash
 # 在demo中演示
-cargo run -- ./demo/project.zip
+cargo run -- .test/demo/project.zip
+```
 
 ## 输出说明
 
