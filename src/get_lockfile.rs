@@ -37,17 +37,18 @@ pub fn get_lockfile(zip_path: &str) -> Result<LockDiscovery, anyhow::Error> {
     }
 
     // 如果没有找到 Cargo.lock，尝试查找项目根目录的 Cargo.toml
+    // 之前这里强制要求同目录下存在 src/ 才认为是项目根目录。
+    // 但我们在 ZIP 解包时只提取了 .toml/.lock 文件，并不会把 src/ 解出来，
+    // 导致即使存在 Cargo.toml 仍然无法识别项目根目录，进而无法生成 Cargo.lock。
+    // 因此这里放宽判断：找到任意 Cargo.toml 就视为候选根目录。
     let mut project_root = None;
     for entry in WalkDir::new(output_dir).into_iter().filter_map(|e| e.ok()) {
         if entry.file_name() == "Cargo.toml" {
             let cargo_dir = entry.path().parent()
                 .ok_or_else(|| anyhow::anyhow!("无法获取 Cargo.toml 所在目录"))?;
-                
-            // 检查这个目录是否像是项目根目录（例如，检查是否有 src 目录）
-            if cargo_dir.join("src").exists() {
-                project_root = Some(PathBuf::from(cargo_dir));
-                break;
-            }
+
+            project_root = Some(PathBuf::from(cargo_dir));
+            break;
         }
     }
 

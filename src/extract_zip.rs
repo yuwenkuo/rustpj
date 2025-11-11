@@ -7,68 +7,48 @@ use anyhow::{Result, Context};
 pub struct TomlLockExtractor;
 
 impl TomlLockExtractor {
-    /// 从 ZIP 文件中提取所有 .toml 和 .lock 文件
-    pub fn extract_toml_and_lock_files(
-        zip_path: &str,
-        output_dir: &str,
-    ) -> Result<()> {
-        // 创建输出目录
-        fs::create_dir_all(output_dir)
-            .context("无法创建输出目录")?;
+    // Extract the entire ZIP payload. We previously extracted only .toml/.lock, which
+    // prevented `cargo generate-lockfile` from working because Cargo requires a real
+    // target (src/main.rs, src/lib.rs, or explicit [[bin]]) to parse the manifest.
+    // Using `mangled_name()` ensures any path traversal inside the ZIP is neutralized.
+    pub fn extract_toml_and_lock_files(zip_path: &str, output_dir: &str) -> Result<()> {
+        fs::create_dir_all(output_dir).context("无法创建输出目录")?;
 
-        // 打开 ZIP 文件
-        let file = File::open(zip_path)
-            .context("无法打开 ZIP 文件")?;
-        
-        let mut archive = ZipArchive::new(file)
-            .context("无效的 ZIP 文件")?;
+        let file = File::open(zip_path).context("无法打开 ZIP 文件")?;
+        let mut archive = ZipArchive::new(file).context("无效的 ZIP 文件")?;
 
-        // 遍历 ZIP 中的所有文件
         for i in 0..archive.len() {
-            let mut zip_file = archive.by_index(i)
+            let mut entry = archive
+                .by_index(i)
                 .context(format!("无法读取 ZIP 中的文件索引 {}", i))?;
 
-            let file_path = zip_file.mangled_name();
-            let file_name = file_path.file_name()
-                .and_then(|name| name.to_str())
-                .unwrap_or("");
+            let rel = entry.mangled_name();
+            let out_path = Path::new(output_dir).join(&rel);
 
-            // 检查文件扩展名
-            if Self::is_toml_or_lock_file(file_name) {
-                let relative_path = file_path.to_string_lossy().to_string();
-                
-                // 创建输出路径
-                let output_path = Path::new(output_dir).join(&relative_path);
-                
-                // 确保父目录存在
-                if let Some(parent) = output_path.parent() {
-                    fs::create_dir_all(parent)
-                        .context(format!("无法创建目录: {}", parent.display()))?;
+            if entry.is_dir() {
+                fs::create_dir_all(&out_path)
+                    .with_context(|| format!("无法创建目录: {}", out_path.display()))?;
+                continue;
+            }
+
+            if let Some(parent) = out_path.parent() {
+                fs::create_dir_all(parent)
+                    .with_context(|| format!("无法创建目录: {}", parent.display()))?;
+            }
+
+            let mut out_file = File::create(&out_path)
+                .with_context(|| format!("无法创建文件: {}", out_path.display()))?;
+            io::copy(&mut entry, &mut out_file)
+                .with_context(|| format!("无法写入文件: {}", out_path.display()))?;
+
+            // Only print a line for interesting files to keep logs tidy
+            if let Some(name) = rel.file_name().and_then(|s| s.to_str()) {
+                if name.ends_with(".toml") || name.ends_with(".lock") || name == "main.rs" {
+                    println!("EXTRACTED: {} -> {}", name, out_path.display());
                 }
-
-                // 写入文件
-                let mut output_file = File::create(&output_path)
-                    .context(format!("无法创建文件: {}", output_path.display()))?;
-                
-                io::copy(&mut zip_file, &mut output_file)
-                    .context(format!("无法写入文件: {}", output_path.display()))?;
-
-                // ASCII-only logging for broader terminal compatibility
-                println!("EXTRACTED: {} -> {}", file_name, output_path.display());
             }
         }
 
         Ok(())
-    }
-
-    /// 检查文件名是否为 .toml 或 .lock 文件
-    fn is_toml_or_lock_file(filename: &str) -> bool {
-        let path = Path::new(filename);
-        
-        if let Some(extension) = path.extension().and_then(|ext| ext.to_str()) {
-            extension == "toml" || extension == "lock"
-        } else {
-            false
-        }
     }
 }

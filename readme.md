@@ -28,6 +28,10 @@ cargo run -- ./test/myproject.zip
 cargo run -- ./downloads/some-project-main.zip
 ```
 
+```bash
+# 在demo中演示
+cargo run -- ./demo/project.zip
+
 ## 输出说明
 
 工具会生成一个 JSON 格式的漏洞报告，包含以下信息：
@@ -72,3 +76,4 @@ cargo run -- ./downloads/some-project-main.zip
 2. 对于没有 Cargo.lock 的项目，工具会尝试自动生成，但这需要完整的项目结构
 3. 临时文件会被存放在 `./tmp` 目录，扫描完成后自动清理
 4. 漏洞报告默认输出到 `./output` 目录
+5. `./demo`：演示用 ZIP（`project.zip`）与示例项目目录（`demo_hello`）。

@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-11-07T16:17:12.954986600+00:00",
+    "timestamp": "2025-11-11T07:01:06.904376+00:00",
     "tools": [
       {
         "vendor": "Custom",
@@ -15,107 +15,15 @@
   "components": [
     {
       "type": "library",
-      "name": "autocfg",
-      "version": "1.5.0",
-      "purl": "pkg:cargo/autocfg@1.5.0",
-      "bom-ref": "autocfg@1.5.0"
-    },
-    {
-      "type": "library",
-      "name": "matrixmultiply",
-      "version": "0.2.4",
-      "purl": "pkg:cargo/matrixmultiply@0.2.4",
-      "bom-ref": "matrixmultiply@0.2.4"
-    },
-    {
-      "type": "library",
-      "name": "ndarray",
-      "version": "0.14.0",
-      "purl": "pkg:cargo/ndarray@0.14.0",
-      "bom-ref": "ndarray@0.14.0"
-    },
-    {
-      "type": "library",
-      "name": "num-complex",
-      "version": "0.3.1",
-      "purl": "pkg:cargo/num-complex@0.3.1",
-      "bom-ref": "num-complex@0.3.1"
-    },
-    {
-      "type": "library",
-      "name": "num-integer",
-      "version": "0.1.46",
-      "purl": "pkg:cargo/num-integer@0.1.46",
-      "bom-ref": "num-integer@0.1.46"
-    },
-    {
-      "type": "library",
-      "name": "num-traits",
-      "version": "0.2.19",
-      "purl": "pkg:cargo/num-traits@0.2.19",
-      "bom-ref": "num-traits@0.2.19"
-    },
-    {
-      "type": "library",
-      "name": "rawpointer",
-      "version": "0.2.1",
-      "purl": "pkg:cargo/rawpointer@0.2.1",
-      "bom-ref": "rawpointer@0.2.1"
-    },
-    {
-      "type": "library",
-      "name": "test1",
+      "name": "demo_hello",
       "version": "0.1.0",
-      "purl": "pkg:cargo/test1@0.1.0",
-      "bom-ref": "test1@0.1.0"
+      "purl": "pkg:cargo/demo_hello@0.1.0",
+      "bom-ref": "demo_hello@0.1.0"
     }
   ],
   "dependencies": [
     {
-      "ref": "autocfg@1.5.0"
-    },
-    {
-      "ref": "matrixmultiply@0.2.4",
-      "dependsOn": [
-        "rawpointer@0.2.1"
-      ]
-    },
-    {
-      "ref": "ndarray@0.14.0",
-      "dependsOn": [
-        "matrixmultiply@0.2.4",
-        "num-complex@0.3.1",
-        "num-integer@0.1.46",
-        "num-traits@0.2.19",
-        "rawpointer@0.2.1"
-      ]
-    },
-    {
-      "ref": "num-complex@0.3.1",
-      "dependsOn": [
-        "num-traits@0.2.19"
-      ]
-    },
-    {
-      "ref": "num-integer@0.1.46",
-      "dependsOn": [
-        "num-traits@0.2.19"
-      ]
-    },
-    {
-      "ref": "num-traits@0.2.19",
-      "dependsOn": [
-        "autocfg@1.5.0"
-      ]
-    },
-    {
-      "ref": "rawpointer@0.2.1"
-    },
-    {
-      "ref": "test1@0.1.0",
-      "dependsOn": [
-        "ndarray@0.14.0"
-      ]
+      "ref": "demo_hello@0.1.0"
     }
   ]
 }
