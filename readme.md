@@ -72,7 +72,7 @@ cargo run -- .test/demo/project.zip
 ## 注意事项
 
 1. 确保 `./data/advisory-db` 目录存在且包含最新的 RustSec Advisory DB
-2. 对于没有 Cargo.lock 的项目，工具会尝试自动生成，但这需要完整的项目结构
-3. 临时文件会被存放在 `./tmp` 目录，扫描完成后自动清理
-4. 漏洞报告默认输出到 `./output` 目录
-5. `./demo`：演示用 ZIP（`project.zip`）与示例项目目录（`demo_hello`）。
+2. 临时文件会被存放在 `./tmp` 目录，扫描完成后自动清理
+3. 漏洞报告默认输出到 `./output` 目录
+4. `./demo`：演示用 ZIP（`project.zip`）与示例项目目录（`demo_hello`）。
+5. 确保要检测的项目，已经包含 lock 文件，如果没有请先 cargo build 或 cargo generate-lockfile

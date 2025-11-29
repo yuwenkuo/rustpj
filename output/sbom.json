@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-11-11T07:11:23.389135+00:00",
+    "timestamp": "2025-11-29T03:14:05.521130+00:00",
     "tools": [
       {
         "vendor": "Custom",
@@ -15,15 +15,2351 @@
   "components": [
     {
       "type": "library",
-      "name": "sample_hello",
+      "name": "addr2line",
+      "version": "0.25.1",
+      "purl": "pkg:cargo/addr2line@0.25.1",
+      "bom-ref": "addr2line@0.25.1"
+    },
+    {
+      "type": "library",
+      "name": "allocator-api2",
+      "version": "0.2.21",
+      "purl": "pkg:cargo/allocator-api2@0.2.21",
+      "bom-ref": "allocator-api2@0.2.21"
+    },
+    {
+      "type": "library",
+      "name": "anyhow",
+      "version": "1.0.100",
+      "purl": "pkg:cargo/anyhow@1.0.100",
+      "bom-ref": "anyhow@1.0.100"
+    },
+    {
+      "type": "library",
+      "name": "arbitrary",
+      "version": "1.4.2",
+      "purl": "pkg:cargo/arbitrary@1.4.2",
+      "bom-ref": "arbitrary@1.4.2"
+    },
+    {
+      "type": "library",
+      "name": "async-trait",
+      "version": "0.1.89",
+      "purl": "pkg:cargo/async-trait@0.1.89",
+      "bom-ref": "async-trait@0.1.89"
+    },
+    {
+      "type": "library",
+      "name": "base64",
+      "version": "0.22.1",
+      "purl": "pkg:cargo/base64@0.22.1",
+      "bom-ref": "base64@0.22.1"
+    },
+    {
+      "type": "library",
+      "name": "bitflags",
+      "version": "2.10.0",
+      "purl": "pkg:cargo/bitflags@2.10.0",
+      "bom-ref": "bitflags@2.10.0"
+    },
+    {
+      "type": "library",
+      "name": "block-buffer",
+      "version": "0.10.4",
+      "purl": "pkg:cargo/block-buffer@0.10.4",
+      "bom-ref": "block-buffer@0.10.4"
+    },
+    {
+      "type": "library",
+      "name": "bumpalo",
+      "version": "3.19.0",
+      "purl": "pkg:cargo/bumpalo@3.19.0",
+      "bom-ref": "bumpalo@3.19.0"
+    },
+    {
+      "type": "library",
+      "name": "cc",
+      "version": "1.2.48",
+      "purl": "pkg:cargo/cc@1.2.48",
+      "bom-ref": "cc@1.2.48"
+    },
+    {
+      "type": "library",
+      "name": "cfg-if",
+      "version": "1.0.4",
+      "purl": "pkg:cargo/cfg-if@1.0.4",
+      "bom-ref": "cfg-if@1.0.4"
+    },
+    {
+      "type": "library",
+      "name": "cobs",
+      "version": "0.3.0",
+      "purl": "pkg:cargo/cobs@0.3.0",
+      "bom-ref": "cobs@0.3.0"
+    },
+    {
+      "type": "library",
+      "name": "cpp_demangle",
+      "version": "0.4.5",
+      "purl": "pkg:cargo/cpp_demangle@0.4.5",
+      "bom-ref": "cpp_demangle@0.4.5"
+    },
+    {
+      "type": "library",
+      "name": "cpufeatures",
+      "version": "0.2.17",
+      "purl": "pkg:cargo/cpufeatures@0.2.17",
+      "bom-ref": "cpufeatures@0.2.17"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-assembler-x64",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-assembler-x64@0.125.4",
+      "bom-ref": "cranelift-assembler-x64@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-assembler-x64-meta",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-assembler-x64-meta@0.125.4",
+      "bom-ref": "cranelift-assembler-x64-meta@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-bforest",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-bforest@0.125.4",
+      "bom-ref": "cranelift-bforest@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-bitset",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-bitset@0.125.4",
+      "bom-ref": "cranelift-bitset@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-codegen",
+      "version": "0.125.3",
+      "purl": "pkg:cargo/cranelift-codegen@0.125.3",
+      "bom-ref": "cranelift-codegen@0.125.3"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-codegen-meta",
+      "version": "0.125.3",
+      "purl": "pkg:cargo/cranelift-codegen-meta@0.125.3",
+      "bom-ref": "cranelift-codegen-meta@0.125.3"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-codegen-shared",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-codegen-shared@0.125.4",
+      "bom-ref": "cranelift-codegen-shared@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-control",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-control@0.125.4",
+      "bom-ref": "cranelift-control@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-entity",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-entity@0.125.4",
+      "bom-ref": "cranelift-entity@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-frontend",
+      "version": "0.125.3",
+      "purl": "pkg:cargo/cranelift-frontend@0.125.3",
+      "bom-ref": "cranelift-frontend@0.125.3"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-isle",
+      "version": "0.125.3",
+      "purl": "pkg:cargo/cranelift-isle@0.125.3",
+      "bom-ref": "cranelift-isle@0.125.3"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-native",
+      "version": "0.125.3",
+      "purl": "pkg:cargo/cranelift-native@0.125.3",
+      "bom-ref": "cranelift-native@0.125.3"
+    },
+    {
+      "type": "library",
+      "name": "cranelift-srcgen",
+      "version": "0.125.4",
+      "purl": "pkg:cargo/cranelift-srcgen@0.125.4",
+      "bom-ref": "cranelift-srcgen@0.125.4"
+    },
+    {
+      "type": "library",
+      "name": "crc32fast",
+      "version": "1.5.0",
+      "purl": "pkg:cargo/crc32fast@1.5.0",
+      "bom-ref": "crc32fast@1.5.0"
+    },
+    {
+      "type": "library",
+      "name": "crossbeam-deque",
+      "version": "0.8.6",
+      "purl": "pkg:cargo/crossbeam-deque@0.8.6",
+      "bom-ref": "crossbeam-deque@0.8.6"
+    },
+    {
+      "type": "library",
+      "name": "crossbeam-epoch",
+      "version": "0.9.18",
+      "purl": "pkg:cargo/crossbeam-epoch@0.9.18",
+      "bom-ref": "crossbeam-epoch@0.9.18"
+    },
+    {
+      "type": "library",
+      "name": "crossbeam-utils",
+      "version": "0.8.21",
+      "purl": "pkg:cargo/crossbeam-utils@0.8.21",
+      "bom-ref": "crossbeam-utils@0.8.21"
+    },
+    {
+      "type": "library",
+      "name": "crypto-common",
+      "version": "0.1.7",
+      "purl": "pkg:cargo/crypto-common@0.1.7",
+      "bom-ref": "crypto-common@0.1.7"
+    },
+    {
+      "type": "library",
+      "name": "debugid",
+      "version": "0.8.0",
+      "purl": "pkg:cargo/debugid@0.8.0",
+      "bom-ref": "debugid@0.8.0"
+    },
+    {
+      "type": "library",
+      "name": "digest",
+      "version": "0.10.7",
+      "purl": "pkg:cargo/digest@0.10.7",
+      "bom-ref": "digest@0.10.7"
+    },
+    {
+      "type": "library",
+      "name": "directories-next",
+      "version": "2.0.0",
+      "purl": "pkg:cargo/directories-next@2.0.0",
+      "bom-ref": "directories-next@2.0.0"
+    },
+    {
+      "type": "library",
+      "name": "dirs-sys-next",
+      "version": "0.1.2",
+      "purl": "pkg:cargo/dirs-sys-next@0.1.2",
+      "bom-ref": "dirs-sys-next@0.1.2"
+    },
+    {
+      "type": "library",
+      "name": "either",
+      "version": "1.15.0",
+      "purl": "pkg:cargo/either@1.15.0",
+      "bom-ref": "either@1.15.0"
+    },
+    {
+      "type": "library",
+      "name": "embedded-io",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/embedded-io@0.4.0",
+      "bom-ref": "embedded-io@0.4.0"
+    },
+    {
+      "type": "library",
+      "name": "embedded-io",
+      "version": "0.6.1",
+      "purl": "pkg:cargo/embedded-io@0.6.1",
+      "bom-ref": "embedded-io@0.6.1"
+    },
+    {
+      "type": "library",
+      "name": "encoding_rs",
+      "version": "0.8.35",
+      "purl": "pkg:cargo/encoding_rs@0.8.35",
+      "bom-ref": "encoding_rs@0.8.35"
+    },
+    {
+      "type": "library",
+      "name": "equivalent",
+      "version": "1.0.2",
+      "purl": "pkg:cargo/equivalent@1.0.2",
+      "bom-ref": "equivalent@1.0.2"
+    },
+    {
+      "type": "library",
+      "name": "errno",
+      "version": "0.3.14",
+      "purl": "pkg:cargo/errno@0.3.14",
+      "bom-ref": "errno@0.3.14"
+    },
+    {
+      "type": "library",
+      "name": "fallible-iterator",
+      "version": "0.3.0",
+      "purl": "pkg:cargo/fallible-iterator@0.3.0",
+      "bom-ref": "fallible-iterator@0.3.0"
+    },
+    {
+      "type": "library",
+      "name": "faster-hex",
+      "version": "0.9.0",
+      "purl": "pkg:cargo/faster-hex@0.9.0",
+      "bom-ref": "faster-hex@0.9.0"
+    },
+    {
+      "type": "library",
+      "name": "find-msvc-tools",
+      "version": "0.1.5",
+      "purl": "pkg:cargo/find-msvc-tools@0.1.5",
+      "bom-ref": "find-msvc-tools@0.1.5"
+    },
+    {
+      "type": "library",
+      "name": "foldhash",
+      "version": "0.1.5",
+      "purl": "pkg:cargo/foldhash@0.1.5",
+      "bom-ref": "foldhash@0.1.5"
+    },
+    {
+      "type": "library",
+      "name": "fxprof-processed-profile",
+      "version": "0.8.1",
+      "purl": "pkg:cargo/fxprof-processed-profile@0.8.1",
+      "bom-ref": "fxprof-processed-profile@0.8.1"
+    },
+    {
+      "type": "library",
+      "name": "generic-array",
+      "version": "0.14.7",
+      "purl": "pkg:cargo/generic-array@0.14.7",
+      "bom-ref": "generic-array@0.14.7"
+    },
+    {
+      "type": "library",
+      "name": "getrandom",
+      "version": "0.2.16",
+      "purl": "pkg:cargo/getrandom@0.2.16",
+      "bom-ref": "getrandom@0.2.16"
+    },
+    {
+      "type": "library",
+      "name": "getrandom",
+      "version": "0.3.4",
+      "purl": "pkg:cargo/getrandom@0.3.4",
+      "bom-ref": "getrandom@0.3.4"
+    },
+    {
+      "type": "library",
+      "name": "gimli",
+      "version": "0.32.3",
+      "purl": "pkg:cargo/gimli@0.32.3",
+      "bom-ref": "gimli@0.32.3"
+    },
+    {
+      "type": "library",
+      "name": "gix-features",
+      "version": "0.40.0",
+      "purl": "pkg:cargo/gix-features@0.40.0",
+      "bom-ref": "gix-features@0.40.0"
+    },
+    {
+      "type": "library",
+      "name": "gix-hash",
+      "version": "0.16.0",
+      "purl": "pkg:cargo/gix-hash@0.16.0",
+      "bom-ref": "gix-hash@0.16.0"
+    },
+    {
+      "type": "library",
+      "name": "gix-trace",
+      "version": "0.1.15",
+      "purl": "pkg:cargo/gix-trace@0.1.15",
+      "bom-ref": "gix-trace@0.1.15"
+    },
+    {
+      "type": "library",
+      "name": "hashbrown",
+      "version": "0.15.5",
+      "purl": "pkg:cargo/hashbrown@0.15.5",
+      "bom-ref": "hashbrown@0.15.5"
+    },
+    {
+      "type": "library",
+      "name": "hashbrown",
+      "version": "0.16.1",
+      "purl": "pkg:cargo/hashbrown@0.16.1",
+      "bom-ref": "hashbrown@0.16.1"
+    },
+    {
+      "type": "library",
+      "name": "heck",
+      "version": "0.5.0",
+      "purl": "pkg:cargo/heck@0.5.0",
+      "bom-ref": "heck@0.5.0"
+    },
+    {
+      "type": "library",
+      "name": "id-arena",
+      "version": "2.2.1",
+      "purl": "pkg:cargo/id-arena@2.2.1",
+      "bom-ref": "id-arena@2.2.1"
+    },
+    {
+      "type": "library",
+      "name": "indexmap",
+      "version": "2.12.1",
+      "purl": "pkg:cargo/indexmap@2.12.1",
+      "bom-ref": "indexmap@2.12.1"
+    },
+    {
+      "type": "library",
+      "name": "itertools",
+      "version": "0.14.0",
+      "purl": "pkg:cargo/itertools@0.14.0",
+      "bom-ref": "itertools@0.14.0"
+    },
+    {
+      "type": "library",
+      "name": "itoa",
+      "version": "1.0.15",
+      "purl": "pkg:cargo/itoa@1.0.15",
+      "bom-ref": "itoa@1.0.15"
+    },
+    {
+      "type": "library",
+      "name": "ittapi",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/ittapi@0.4.0",
+      "bom-ref": "ittapi@0.4.0"
+    },
+    {
+      "type": "library",
+      "name": "ittapi-sys",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/ittapi-sys@0.4.0",
+      "bom-ref": "ittapi-sys@0.4.0"
+    },
+    {
+      "type": "library",
+      "name": "jobserver",
+      "version": "0.1.34",
+      "purl": "pkg:cargo/jobserver@0.1.34",
+      "bom-ref": "jobserver@0.1.34"
+    },
+    {
+      "type": "library",
+      "name": "js-sys",
+      "version": "0.3.83",
+      "purl": "pkg:cargo/js-sys@0.3.83",
+      "bom-ref": "js-sys@0.3.83"
+    },
+    {
+      "type": "library",
+      "name": "leb128fmt",
       "version": "0.1.0",
-      "purl": "pkg:cargo/sample_hello@0.1.0",
-      "bom-ref": "sample_hello@0.1.0"
+      "purl": "pkg:cargo/leb128fmt@0.1.0",
+      "bom-ref": "leb128fmt@0.1.0"
+    },
+    {
+      "type": "library",
+      "name": "libc",
+      "version": "0.2.177",
+      "purl": "pkg:cargo/libc@0.2.177",
+      "bom-ref": "libc@0.2.177"
+    },
+    {
+      "type": "library",
+      "name": "libm",
+      "version": "0.2.15",
+      "purl": "pkg:cargo/libm@0.2.15",
+      "bom-ref": "libm@0.2.15"
+    },
+    {
+      "type": "library",
+      "name": "libredox",
+      "version": "0.1.10",
+      "purl": "pkg:cargo/libredox@0.1.10",
+      "bom-ref": "libredox@0.1.10"
+    },
+    {
+      "type": "library",
+      "name": "linux-raw-sys",
+      "version": "0.11.0",
+      "purl": "pkg:cargo/linux-raw-sys@0.11.0",
+      "bom-ref": "linux-raw-sys@0.11.0"
+    },
+    {
+      "type": "library",
+      "name": "log",
+      "version": "0.4.28",
+      "purl": "pkg:cargo/log@0.4.28",
+      "bom-ref": "log@0.4.28"
+    },
+    {
+      "type": "library",
+      "name": "mach2",
+      "version": "0.4.3",
+      "purl": "pkg:cargo/mach2@0.4.3",
+      "bom-ref": "mach2@0.4.3"
+    },
+    {
+      "type": "library",
+      "name": "memchr",
+      "version": "2.7.6",
+      "purl": "pkg:cargo/memchr@2.7.6",
+      "bom-ref": "memchr@2.7.6"
+    },
+    {
+      "type": "library",
+      "name": "memfd",
+      "version": "0.6.5",
+      "purl": "pkg:cargo/memfd@0.6.5",
+      "bom-ref": "memfd@0.6.5"
+    },
+    {
+      "type": "library",
+      "name": "object",
+      "version": "0.37.3",
+      "purl": "pkg:cargo/object@0.37.3",
+      "bom-ref": "object@0.37.3"
+    },
+    {
+      "type": "library",
+      "name": "once_cell",
+      "version": "1.21.3",
+      "purl": "pkg:cargo/once_cell@1.21.3",
+      "bom-ref": "once_cell@1.21.3"
+    },
+    {
+      "type": "library",
+      "name": "pkg-config",
+      "version": "0.3.32",
+      "purl": "pkg:cargo/pkg-config@0.3.32",
+      "bom-ref": "pkg-config@0.3.32"
+    },
+    {
+      "type": "library",
+      "name": "postcard",
+      "version": "1.1.3",
+      "purl": "pkg:cargo/postcard@1.1.3",
+      "bom-ref": "postcard@1.1.3"
+    },
+    {
+      "type": "library",
+      "name": "proc-macro2",
+      "version": "1.0.103",
+      "purl": "pkg:cargo/proc-macro2@1.0.103",
+      "bom-ref": "proc-macro2@1.0.103"
+    },
+    {
+      "type": "library",
+      "name": "pulley-interpreter",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/pulley-interpreter@38.0.3",
+      "bom-ref": "pulley-interpreter@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "pulley-macros",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/pulley-macros@38.0.3",
+      "bom-ref": "pulley-macros@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "quote",
+      "version": "1.0.42",
+      "purl": "pkg:cargo/quote@1.0.42",
+      "bom-ref": "quote@1.0.42"
+    },
+    {
+      "type": "library",
+      "name": "r-efi",
+      "version": "5.3.0",
+      "purl": "pkg:cargo/r-efi@5.3.0",
+      "bom-ref": "r-efi@5.3.0"
+    },
+    {
+      "type": "library",
+      "name": "rayon",
+      "version": "1.11.0",
+      "purl": "pkg:cargo/rayon@1.11.0",
+      "bom-ref": "rayon@1.11.0"
+    },
+    {
+      "type": "library",
+      "name": "rayon-core",
+      "version": "1.13.0",
+      "purl": "pkg:cargo/rayon-core@1.13.0",
+      "bom-ref": "rayon-core@1.13.0"
+    },
+    {
+      "type": "library",
+      "name": "redox_users",
+      "version": "0.4.6",
+      "purl": "pkg:cargo/redox_users@0.4.6",
+      "bom-ref": "redox_users@0.4.6"
+    },
+    {
+      "type": "library",
+      "name": "regalloc2",
+      "version": "0.13.3",
+      "purl": "pkg:cargo/regalloc2@0.13.3",
+      "bom-ref": "regalloc2@0.13.3"
+    },
+    {
+      "type": "library",
+      "name": "rust-vuln-wasmtime-gix",
+      "version": "0.1.0",
+      "purl": "pkg:cargo/rust-vuln-wasmtime-gix@0.1.0",
+      "bom-ref": "rust-vuln-wasmtime-gix@0.1.0"
+    },
+    {
+      "type": "library",
+      "name": "rustc-demangle",
+      "version": "0.1.26",
+      "purl": "pkg:cargo/rustc-demangle@0.1.26",
+      "bom-ref": "rustc-demangle@0.1.26"
+    },
+    {
+      "type": "library",
+      "name": "rustc-hash",
+      "version": "2.1.1",
+      "purl": "pkg:cargo/rustc-hash@2.1.1",
+      "bom-ref": "rustc-hash@2.1.1"
+    },
+    {
+      "type": "library",
+      "name": "rustix",
+      "version": "1.1.2",
+      "purl": "pkg:cargo/rustix@1.1.2",
+      "bom-ref": "rustix@1.1.2"
+    },
+    {
+      "type": "library",
+      "name": "rustversion",
+      "version": "1.0.22",
+      "purl": "pkg:cargo/rustversion@1.0.22",
+      "bom-ref": "rustversion@1.0.22"
+    },
+    {
+      "type": "library",
+      "name": "ryu",
+      "version": "1.0.20",
+      "purl": "pkg:cargo/ryu@1.0.20",
+      "bom-ref": "ryu@1.0.20"
+    },
+    {
+      "type": "library",
+      "name": "semver",
+      "version": "1.0.27",
+      "purl": "pkg:cargo/semver@1.0.27",
+      "bom-ref": "semver@1.0.27"
+    },
+    {
+      "type": "library",
+      "name": "serde",
+      "version": "1.0.228",
+      "purl": "pkg:cargo/serde@1.0.228",
+      "bom-ref": "serde@1.0.228"
+    },
+    {
+      "type": "library",
+      "name": "serde_core",
+      "version": "1.0.228",
+      "purl": "pkg:cargo/serde_core@1.0.228",
+      "bom-ref": "serde_core@1.0.228"
+    },
+    {
+      "type": "library",
+      "name": "serde_derive",
+      "version": "1.0.228",
+      "purl": "pkg:cargo/serde_derive@1.0.228",
+      "bom-ref": "serde_derive@1.0.228"
+    },
+    {
+      "type": "library",
+      "name": "serde_json",
+      "version": "1.0.145",
+      "purl": "pkg:cargo/serde_json@1.0.145",
+      "bom-ref": "serde_json@1.0.145"
+    },
+    {
+      "type": "library",
+      "name": "serde_spanned",
+      "version": "0.6.9",
+      "purl": "pkg:cargo/serde_spanned@0.6.9",
+      "bom-ref": "serde_spanned@0.6.9"
+    },
+    {
+      "type": "library",
+      "name": "sha2",
+      "version": "0.10.9",
+      "purl": "pkg:cargo/sha2@0.10.9",
+      "bom-ref": "sha2@0.10.9"
+    },
+    {
+      "type": "library",
+      "name": "shlex",
+      "version": "1.3.0",
+      "purl": "pkg:cargo/shlex@1.3.0",
+      "bom-ref": "shlex@1.3.0"
+    },
+    {
+      "type": "library",
+      "name": "smallvec",
+      "version": "1.15.1",
+      "purl": "pkg:cargo/smallvec@1.15.1",
+      "bom-ref": "smallvec@1.15.1"
+    },
+    {
+      "type": "library",
+      "name": "stable_deref_trait",
+      "version": "1.2.1",
+      "purl": "pkg:cargo/stable_deref_trait@1.2.1",
+      "bom-ref": "stable_deref_trait@1.2.1"
+    },
+    {
+      "type": "library",
+      "name": "syn",
+      "version": "2.0.111",
+      "purl": "pkg:cargo/syn@2.0.111",
+      "bom-ref": "syn@2.0.111"
+    },
+    {
+      "type": "library",
+      "name": "target-lexicon",
+      "version": "0.13.3",
+      "purl": "pkg:cargo/target-lexicon@0.13.3",
+      "bom-ref": "target-lexicon@0.13.3"
+    },
+    {
+      "type": "library",
+      "name": "termcolor",
+      "version": "1.4.1",
+      "purl": "pkg:cargo/termcolor@1.4.1",
+      "bom-ref": "termcolor@1.4.1"
+    },
+    {
+      "type": "library",
+      "name": "thiserror",
+      "version": "1.0.69",
+      "purl": "pkg:cargo/thiserror@1.0.69",
+      "bom-ref": "thiserror@1.0.69"
+    },
+    {
+      "type": "library",
+      "name": "thiserror",
+      "version": "2.0.17",
+      "purl": "pkg:cargo/thiserror@2.0.17",
+      "bom-ref": "thiserror@2.0.17"
+    },
+    {
+      "type": "library",
+      "name": "thiserror-impl",
+      "version": "1.0.69",
+      "purl": "pkg:cargo/thiserror-impl@1.0.69",
+      "bom-ref": "thiserror-impl@1.0.69"
+    },
+    {
+      "type": "library",
+      "name": "thiserror-impl",
+      "version": "2.0.17",
+      "purl": "pkg:cargo/thiserror-impl@2.0.17",
+      "bom-ref": "thiserror-impl@2.0.17"
+    },
+    {
+      "type": "library",
+      "name": "toml",
+      "version": "0.8.23",
+      "purl": "pkg:cargo/toml@0.8.23",
+      "bom-ref": "toml@0.8.23"
+    },
+    {
+      "type": "library",
+      "name": "toml_datetime",
+      "version": "0.6.11",
+      "purl": "pkg:cargo/toml_datetime@0.6.11",
+      "bom-ref": "toml_datetime@0.6.11"
+    },
+    {
+      "type": "library",
+      "name": "toml_edit",
+      "version": "0.22.27",
+      "purl": "pkg:cargo/toml_edit@0.22.27",
+      "bom-ref": "toml_edit@0.22.27"
+    },
+    {
+      "type": "library",
+      "name": "toml_write",
+      "version": "0.1.2",
+      "purl": "pkg:cargo/toml_write@0.1.2",
+      "bom-ref": "toml_write@0.1.2"
+    },
+    {
+      "type": "library",
+      "name": "typenum",
+      "version": "1.19.0",
+      "purl": "pkg:cargo/typenum@1.19.0",
+      "bom-ref": "typenum@1.19.0"
+    },
+    {
+      "type": "library",
+      "name": "unicode-ident",
+      "version": "1.0.22",
+      "purl": "pkg:cargo/unicode-ident@1.0.22",
+      "bom-ref": "unicode-ident@1.0.22"
+    },
+    {
+      "type": "library",
+      "name": "unicode-width",
+      "version": "0.2.2",
+      "purl": "pkg:cargo/unicode-width@0.2.2",
+      "bom-ref": "unicode-width@0.2.2"
+    },
+    {
+      "type": "library",
+      "name": "unicode-xid",
+      "version": "0.2.6",
+      "purl": "pkg:cargo/unicode-xid@0.2.6",
+      "bom-ref": "unicode-xid@0.2.6"
+    },
+    {
+      "type": "library",
+      "name": "uuid",
+      "version": "1.18.1",
+      "purl": "pkg:cargo/uuid@1.18.1",
+      "bom-ref": "uuid@1.18.1"
+    },
+    {
+      "type": "library",
+      "name": "version_check",
+      "version": "0.9.5",
+      "purl": "pkg:cargo/version_check@0.9.5",
+      "bom-ref": "version_check@0.9.5"
+    },
+    {
+      "type": "library",
+      "name": "wasi",
+      "version": "0.11.1+wasi-snapshot-preview1",
+      "purl": "pkg:cargo/wasi@0.11.1+wasi-snapshot-preview1",
+      "bom-ref": "wasi@0.11.1+wasi-snapshot-preview1"
+    },
+    {
+      "type": "library",
+      "name": "wasip2",
+      "version": "1.0.1+wasi-0.2.4",
+      "purl": "pkg:cargo/wasip2@1.0.1+wasi-0.2.4",
+      "bom-ref": "wasip2@1.0.1+wasi-0.2.4"
+    },
+    {
+      "type": "library",
+      "name": "wasm-bindgen",
+      "version": "0.2.106",
+      "purl": "pkg:cargo/wasm-bindgen@0.2.106",
+      "bom-ref": "wasm-bindgen@0.2.106"
+    },
+    {
+      "type": "library",
+      "name": "wasm-bindgen-macro",
+      "version": "0.2.106",
+      "purl": "pkg:cargo/wasm-bindgen-macro@0.2.106",
+      "bom-ref": "wasm-bindgen-macro@0.2.106"
+    },
+    {
+      "type": "library",
+      "name": "wasm-bindgen-macro-support",
+      "version": "0.2.106",
+      "purl": "pkg:cargo/wasm-bindgen-macro-support@0.2.106",
+      "bom-ref": "wasm-bindgen-macro-support@0.2.106"
+    },
+    {
+      "type": "library",
+      "name": "wasm-bindgen-shared",
+      "version": "0.2.106",
+      "purl": "pkg:cargo/wasm-bindgen-shared@0.2.106",
+      "bom-ref": "wasm-bindgen-shared@0.2.106"
+    },
+    {
+      "type": "library",
+      "name": "wasm-encoder",
+      "version": "0.239.0",
+      "purl": "pkg:cargo/wasm-encoder@0.239.0",
+      "bom-ref": "wasm-encoder@0.239.0"
+    },
+    {
+      "type": "library",
+      "name": "wasm-encoder",
+      "version": "0.242.0",
+      "purl": "pkg:cargo/wasm-encoder@0.242.0",
+      "bom-ref": "wasm-encoder@0.242.0"
+    },
+    {
+      "type": "library",
+      "name": "wasmparser",
+      "version": "0.239.0",
+      "purl": "pkg:cargo/wasmparser@0.239.0",
+      "bom-ref": "wasmparser@0.239.0"
+    },
+    {
+      "type": "library",
+      "name": "wasmparser",
+      "version": "0.242.0",
+      "purl": "pkg:cargo/wasmparser@0.242.0",
+      "bom-ref": "wasmparser@0.242.0"
+    },
+    {
+      "type": "library",
+      "name": "wasmprinter",
+      "version": "0.239.0",
+      "purl": "pkg:cargo/wasmprinter@0.239.0",
+      "bom-ref": "wasmprinter@0.239.0"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime@38.0.3",
+      "bom-ref": "wasmtime@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-environ",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-environ@38.0.3",
+      "bom-ref": "wasmtime-environ@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-cache",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-cache@38.0.3",
+      "bom-ref": "wasmtime-internal-cache@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-component-macro",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-component-macro@38.0.3",
+      "bom-ref": "wasmtime-internal-component-macro@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-component-util",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-component-util@38.0.3",
+      "bom-ref": "wasmtime-internal-component-util@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-cranelift",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-cranelift@38.0.3",
+      "bom-ref": "wasmtime-internal-cranelift@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-fiber",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-fiber@38.0.3",
+      "bom-ref": "wasmtime-internal-fiber@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-jit-debug",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-jit-debug@38.0.3",
+      "bom-ref": "wasmtime-internal-jit-debug@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-jit-icache-coherence",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-jit-icache-coherence@38.0.3",
+      "bom-ref": "wasmtime-internal-jit-icache-coherence@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-math",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-math@38.0.3",
+      "bom-ref": "wasmtime-internal-math@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-slab",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-slab@38.0.3",
+      "bom-ref": "wasmtime-internal-slab@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-unwinder",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-unwinder@38.0.3",
+      "bom-ref": "wasmtime-internal-unwinder@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-versioned-export-macros",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-versioned-export-macros@38.0.3",
+      "bom-ref": "wasmtime-internal-versioned-export-macros@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-winch",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-winch@38.0.3",
+      "bom-ref": "wasmtime-internal-winch@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wasmtime-internal-wit-bindgen",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/wasmtime-internal-wit-bindgen@38.0.3",
+      "bom-ref": "wasmtime-internal-wit-bindgen@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "wast",
+      "version": "242.0.0",
+      "purl": "pkg:cargo/wast@242.0.0",
+      "bom-ref": "wast@242.0.0"
+    },
+    {
+      "type": "library",
+      "name": "wat",
+      "version": "1.242.0",
+      "purl": "pkg:cargo/wat@1.242.0",
+      "bom-ref": "wat@1.242.0"
+    },
+    {
+      "type": "library",
+      "name": "winapi",
+      "version": "0.3.9",
+      "purl": "pkg:cargo/winapi@0.3.9",
+      "bom-ref": "winapi@0.3.9"
+    },
+    {
+      "type": "library",
+      "name": "winapi-i686-pc-windows-gnu",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+      "bom-ref": "winapi-i686-pc-windows-gnu@0.4.0"
+    },
+    {
+      "type": "library",
+      "name": "winapi-util",
+      "version": "0.1.11",
+      "purl": "pkg:cargo/winapi-util@0.1.11",
+      "bom-ref": "winapi-util@0.1.11"
+    },
+    {
+      "type": "library",
+      "name": "winapi-x86_64-pc-windows-gnu",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0",
+      "bom-ref": "winapi-x86_64-pc-windows-gnu@0.4.0"
+    },
+    {
+      "type": "library",
+      "name": "winch-codegen",
+      "version": "38.0.3",
+      "purl": "pkg:cargo/winch-codegen@38.0.3",
+      "bom-ref": "winch-codegen@38.0.3"
+    },
+    {
+      "type": "library",
+      "name": "windows-link",
+      "version": "0.2.1",
+      "purl": "pkg:cargo/windows-link@0.2.1",
+      "bom-ref": "windows-link@0.2.1"
+    },
+    {
+      "type": "library",
+      "name": "windows-sys",
+      "version": "0.60.2",
+      "purl": "pkg:cargo/windows-sys@0.60.2",
+      "bom-ref": "windows-sys@0.60.2"
+    },
+    {
+      "type": "library",
+      "name": "windows-sys",
+      "version": "0.61.2",
+      "purl": "pkg:cargo/windows-sys@0.61.2",
+      "bom-ref": "windows-sys@0.61.2"
+    },
+    {
+      "type": "library",
+      "name": "windows-targets",
+      "version": "0.53.5",
+      "purl": "pkg:cargo/windows-targets@0.53.5",
+      "bom-ref": "windows-targets@0.53.5"
+    },
+    {
+      "type": "library",
+      "name": "windows_aarch64_gnullvm",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_aarch64_gnullvm@0.53.1",
+      "bom-ref": "windows_aarch64_gnullvm@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "windows_aarch64_msvc",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_aarch64_msvc@0.53.1",
+      "bom-ref": "windows_aarch64_msvc@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "windows_i686_gnu",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_i686_gnu@0.53.1",
+      "bom-ref": "windows_i686_gnu@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "windows_i686_gnullvm",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_i686_gnullvm@0.53.1",
+      "bom-ref": "windows_i686_gnullvm@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "windows_i686_msvc",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_i686_msvc@0.53.1",
+      "bom-ref": "windows_i686_msvc@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "windows_x86_64_gnu",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_x86_64_gnu@0.53.1",
+      "bom-ref": "windows_x86_64_gnu@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "windows_x86_64_gnullvm",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_x86_64_gnullvm@0.53.1",
+      "bom-ref": "windows_x86_64_gnullvm@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "windows_x86_64_msvc",
+      "version": "0.53.1",
+      "purl": "pkg:cargo/windows_x86_64_msvc@0.53.1",
+      "bom-ref": "windows_x86_64_msvc@0.53.1"
+    },
+    {
+      "type": "library",
+      "name": "winnow",
+      "version": "0.7.14",
+      "purl": "pkg:cargo/winnow@0.7.14",
+      "bom-ref": "winnow@0.7.14"
+    },
+    {
+      "type": "library",
+      "name": "wit-bindgen",
+      "version": "0.46.0",
+      "purl": "pkg:cargo/wit-bindgen@0.46.0",
+      "bom-ref": "wit-bindgen@0.46.0"
+    },
+    {
+      "type": "library",
+      "name": "wit-parser",
+      "version": "0.239.0",
+      "purl": "pkg:cargo/wit-parser@0.239.0",
+      "bom-ref": "wit-parser@0.239.0"
+    },
+    {
+      "type": "library",
+      "name": "zstd",
+      "version": "0.13.3",
+      "purl": "pkg:cargo/zstd@0.13.3",
+      "bom-ref": "zstd@0.13.3"
+    },
+    {
+      "type": "library",
+      "name": "zstd-safe",
+      "version": "7.2.4",
+      "purl": "pkg:cargo/zstd-safe@7.2.4",
+      "bom-ref": "zstd-safe@7.2.4"
+    },
+    {
+      "type": "library",
+      "name": "zstd-sys",
+      "version": "2.0.16+zstd.1.5.7",
+      "purl": "pkg:cargo/zstd-sys@2.0.16+zstd.1.5.7",
+      "bom-ref": "zstd-sys@2.0.16+zstd.1.5.7"
     }
   ],
   "dependencies": [
     {
-      "ref": "sample_hello@0.1.0"
+      "ref": "addr2line@0.25.1",
+      "dependsOn": [
+        "gimli@0.32.3"
+      ]
+    },
+    {
+      "ref": "allocator-api2@0.2.21"
+    },
+    {
+      "ref": "anyhow@1.0.100"
+    },
+    {
+      "ref": "arbitrary@1.4.2"
+    },
+    {
+      "ref": "async-trait@0.1.89",
+      "dependsOn": [
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111"
+      ]
+    },
+    {
+      "ref": "base64@0.22.1"
+    },
+    {
+      "ref": "bitflags@2.10.0"
+    },
+    {
+      "ref": "block-buffer@0.10.4",
+      "dependsOn": [
+        "generic-array@0.14.7"
+      ]
+    },
+    {
+      "ref": "bumpalo@3.19.0",
+      "dependsOn": [
+        "allocator-api2@0.2.21"
+      ]
+    },
+    {
+      "ref": "cc@1.2.48",
+      "dependsOn": [
+        "find-msvc-tools@0.1.5",
+        "jobserver@0.1.34",
+        "libc@0.2.177",
+        "shlex@1.3.0"
+      ]
+    },
+    {
+      "ref": "cfg-if@1.0.4"
+    },
+    {
+      "ref": "cobs@0.3.0",
+      "dependsOn": [
+        "thiserror@1.0.69"
+      ]
+    },
+    {
+      "ref": "cpp_demangle@0.4.5",
+      "dependsOn": [
+        "cfg-if@1.0.4"
+      ]
+    },
+    {
+      "ref": "cpufeatures@0.2.17",
+      "dependsOn": [
+        "libc@0.2.177"
+      ]
+    },
+    {
+      "ref": "cranelift-assembler-x64@0.125.4",
+      "dependsOn": [
+        "cranelift-assembler-x64-meta@0.125.4"
+      ]
+    },
+    {
+      "ref": "cranelift-assembler-x64-meta@0.125.4",
+      "dependsOn": [
+        "cranelift-srcgen@0.125.4"
+      ]
+    },
+    {
+      "ref": "cranelift-bforest@0.125.4",
+      "dependsOn": [
+        "cranelift-entity@0.125.4"
+      ]
+    },
+    {
+      "ref": "cranelift-bitset@0.125.4",
+      "dependsOn": [
+        "serde@1.0.228",
+        "serde_derive@1.0.228"
+      ]
+    },
+    {
+      "ref": "cranelift-codegen@0.125.3",
+      "dependsOn": [
+        "bumpalo@3.19.0",
+        "cranelift-assembler-x64@0.125.4",
+        "cranelift-bforest@0.125.4",
+        "cranelift-bitset@0.125.4",
+        "cranelift-codegen-meta@0.125.3",
+        "cranelift-codegen-shared@0.125.4",
+        "cranelift-control@0.125.4",
+        "cranelift-entity@0.125.4",
+        "cranelift-isle@0.125.3",
+        "gimli@0.32.3",
+        "hashbrown@0.15.5",
+        "log@0.4.28",
+        "pulley-interpreter@38.0.3",
+        "regalloc2@0.13.3",
+        "rustc-hash@2.1.1",
+        "serde@1.0.228",
+        "smallvec@1.15.1",
+        "target-lexicon@0.13.3",
+        "wasmtime-internal-math@38.0.3"
+      ]
+    },
+    {
+      "ref": "cranelift-codegen-meta@0.125.3",
+      "dependsOn": [
+        "cranelift-assembler-x64-meta@0.125.4",
+        "cranelift-codegen-shared@0.125.4",
+        "cranelift-srcgen@0.125.4",
+        "heck@0.5.0",
+        "pulley-interpreter@38.0.3"
+      ]
+    },
+    {
+      "ref": "cranelift-codegen-shared@0.125.4"
+    },
+    {
+      "ref": "cranelift-control@0.125.4",
+      "dependsOn": [
+        "arbitrary@1.4.2"
+      ]
+    },
+    {
+      "ref": "cranelift-entity@0.125.4",
+      "dependsOn": [
+        "cranelift-bitset@0.125.4",
+        "serde@1.0.228",
+        "serde_derive@1.0.228"
+      ]
+    },
+    {
+      "ref": "cranelift-frontend@0.125.3",
+      "dependsOn": [
+        "cranelift-codegen@0.125.3",
+        "log@0.4.28",
+        "smallvec@1.15.1",
+        "target-lexicon@0.13.3"
+      ]
+    },
+    {
+      "ref": "cranelift-isle@0.125.3"
+    },
+    {
+      "ref": "cranelift-native@0.125.3",
+      "dependsOn": [
+        "cranelift-codegen@0.125.3",
+        "libc@0.2.177",
+        "target-lexicon@0.13.3"
+      ]
+    },
+    {
+      "ref": "cranelift-srcgen@0.125.4"
+    },
+    {
+      "ref": "crc32fast@1.5.0",
+      "dependsOn": [
+        "cfg-if@1.0.4"
+      ]
+    },
+    {
+      "ref": "crossbeam-deque@0.8.6",
+      "dependsOn": [
+        "crossbeam-epoch@0.9.18",
+        "crossbeam-utils@0.8.21"
+      ]
+    },
+    {
+      "ref": "crossbeam-epoch@0.9.18",
+      "dependsOn": [
+        "crossbeam-utils@0.8.21"
+      ]
+    },
+    {
+      "ref": "crossbeam-utils@0.8.21"
+    },
+    {
+      "ref": "crypto-common@0.1.7",
+      "dependsOn": [
+        "generic-array@0.14.7",
+        "typenum@1.19.0"
+      ]
+    },
+    {
+      "ref": "debugid@0.8.0",
+      "dependsOn": [
+        "uuid@1.18.1"
+      ]
+    },
+    {
+      "ref": "digest@0.10.7",
+      "dependsOn": [
+        "block-buffer@0.10.4",
+        "crypto-common@0.1.7"
+      ]
+    },
+    {
+      "ref": "directories-next@2.0.0",
+      "dependsOn": [
+        "cfg-if@1.0.4",
+        "dirs-sys-next@0.1.2"
+      ]
+    },
+    {
+      "ref": "dirs-sys-next@0.1.2",
+      "dependsOn": [
+        "libc@0.2.177",
+        "redox_users@0.4.6",
+        "winapi@0.3.9"
+      ]
+    },
+    {
+      "ref": "either@1.15.0"
+    },
+    {
+      "ref": "embedded-io@0.4.0"
+    },
+    {
+      "ref": "embedded-io@0.6.1"
+    },
+    {
+      "ref": "encoding_rs@0.8.35",
+      "dependsOn": [
+        "cfg-if@1.0.4"
+      ]
+    },
+    {
+      "ref": "equivalent@1.0.2"
+    },
+    {
+      "ref": "errno@0.3.14",
+      "dependsOn": [
+        "libc@0.2.177",
+        "windows-sys@0.60.2"
+      ]
+    },
+    {
+      "ref": "fallible-iterator@0.3.0"
+    },
+    {
+      "ref": "faster-hex@0.9.0",
+      "dependsOn": [
+        "serde@1.0.228"
+      ]
+    },
+    {
+      "ref": "find-msvc-tools@0.1.5"
+    },
+    {
+      "ref": "foldhash@0.1.5"
+    },
+    {
+      "ref": "fxprof-processed-profile@0.8.1",
+      "dependsOn": [
+        "bitflags@2.10.0",
+        "debugid@0.8.0",
+        "rustc-hash@2.1.1",
+        "serde@1.0.228",
+        "serde_derive@1.0.228",
+        "serde_json@1.0.145"
+      ]
+    },
+    {
+      "ref": "generic-array@0.14.7",
+      "dependsOn": [
+        "typenum@1.19.0",
+        "version_check@0.9.5"
+      ]
+    },
+    {
+      "ref": "getrandom@0.2.16",
+      "dependsOn": [
+        "cfg-if@1.0.4",
+        "libc@0.2.177",
+        "wasi@0.11.1+wasi-snapshot-preview1"
+      ]
+    },
+    {
+      "ref": "getrandom@0.3.4",
+      "dependsOn": [
+        "cfg-if@1.0.4",
+        "libc@0.2.177",
+        "r-efi@5.3.0",
+        "wasip2@1.0.1+wasi-0.2.4"
+      ]
+    },
+    {
+      "ref": "gimli@0.32.3",
+      "dependsOn": [
+        "fallible-iterator@0.3.0",
+        "indexmap@2.12.1",
+        "stable_deref_trait@1.2.1"
+      ]
+    },
+    {
+      "ref": "gix-features@0.40.0",
+      "dependsOn": [
+        "gix-hash@0.16.0",
+        "gix-trace@0.1.15",
+        "libc@0.2.177"
+      ]
+    },
+    {
+      "ref": "gix-hash@0.16.0",
+      "dependsOn": [
+        "faster-hex@0.9.0",
+        "thiserror@1.0.69"
+      ]
+    },
+    {
+      "ref": "gix-trace@0.1.15"
+    },
+    {
+      "ref": "hashbrown@0.15.5",
+      "dependsOn": [
+        "foldhash@0.1.5",
+        "serde@1.0.228"
+      ]
+    },
+    {
+      "ref": "hashbrown@0.16.1"
+    },
+    {
+      "ref": "heck@0.5.0"
+    },
+    {
+      "ref": "id-arena@2.2.1"
+    },
+    {
+      "ref": "indexmap@2.12.1",
+      "dependsOn": [
+        "equivalent@1.0.2",
+        "hashbrown@0.15.5",
+        "serde@1.0.228",
+        "serde_core@1.0.228"
+      ]
+    },
+    {
+      "ref": "itertools@0.14.0",
+      "dependsOn": [
+        "either@1.15.0"
+      ]
+    },
+    {
+      "ref": "itoa@1.0.15"
+    },
+    {
+      "ref": "ittapi@0.4.0",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "ittapi-sys@0.4.0",
+        "log@0.4.28"
+      ]
+    },
+    {
+      "ref": "ittapi-sys@0.4.0",
+      "dependsOn": [
+        "cc@1.2.48"
+      ]
+    },
+    {
+      "ref": "jobserver@0.1.34",
+      "dependsOn": [
+        "getrandom@0.2.16",
+        "libc@0.2.177"
+      ]
+    },
+    {
+      "ref": "js-sys@0.3.83",
+      "dependsOn": [
+        "once_cell@1.21.3",
+        "wasm-bindgen@0.2.106"
+      ]
+    },
+    {
+      "ref": "leb128fmt@0.1.0"
+    },
+    {
+      "ref": "libc@0.2.177"
+    },
+    {
+      "ref": "libm@0.2.15"
+    },
+    {
+      "ref": "libredox@0.1.10",
+      "dependsOn": [
+        "bitflags@2.10.0",
+        "libc@0.2.177"
+      ]
+    },
+    {
+      "ref": "linux-raw-sys@0.11.0"
+    },
+    {
+      "ref": "log@0.4.28"
+    },
+    {
+      "ref": "mach2@0.4.3",
+      "dependsOn": [
+        "libc@0.2.177"
+      ]
+    },
+    {
+      "ref": "memchr@2.7.6"
+    },
+    {
+      "ref": "memfd@0.6.5",
+      "dependsOn": [
+        "rustix@1.1.2"
+      ]
+    },
+    {
+      "ref": "object@0.37.3",
+      "dependsOn": [
+        "crc32fast@1.5.0",
+        "hashbrown@0.15.5",
+        "indexmap@2.12.1",
+        "memchr@2.7.6"
+      ]
+    },
+    {
+      "ref": "once_cell@1.21.3"
+    },
+    {
+      "ref": "pkg-config@0.3.32"
+    },
+    {
+      "ref": "postcard@1.1.3",
+      "dependsOn": [
+        "cobs@0.3.0",
+        "embedded-io@0.4.0",
+        "embedded-io@0.4.0",
+        "serde@1.0.228"
+      ]
+    },
+    {
+      "ref": "proc-macro2@1.0.103",
+      "dependsOn": [
+        "unicode-ident@1.0.22"
+      ]
+    },
+    {
+      "ref": "pulley-interpreter@38.0.3",
+      "dependsOn": [
+        "cranelift-bitset@0.125.4",
+        "log@0.4.28",
+        "pulley-macros@38.0.3",
+        "wasmtime-internal-math@38.0.3"
+      ]
+    },
+    {
+      "ref": "pulley-macros@38.0.3",
+      "dependsOn": [
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111"
+      ]
+    },
+    {
+      "ref": "quote@1.0.42",
+      "dependsOn": [
+        "proc-macro2@1.0.103"
+      ]
+    },
+    {
+      "ref": "r-efi@5.3.0"
+    },
+    {
+      "ref": "rayon@1.11.0",
+      "dependsOn": [
+        "either@1.15.0",
+        "rayon-core@1.13.0"
+      ]
+    },
+    {
+      "ref": "rayon-core@1.13.0",
+      "dependsOn": [
+        "crossbeam-deque@0.8.6",
+        "crossbeam-utils@0.8.21"
+      ]
+    },
+    {
+      "ref": "redox_users@0.4.6",
+      "dependsOn": [
+        "getrandom@0.2.16",
+        "libredox@0.1.10",
+        "thiserror@1.0.69"
+      ]
+    },
+    {
+      "ref": "regalloc2@0.13.3",
+      "dependsOn": [
+        "allocator-api2@0.2.21",
+        "bumpalo@3.19.0",
+        "hashbrown@0.15.5",
+        "log@0.4.28",
+        "rustc-hash@2.1.1",
+        "smallvec@1.15.1"
+      ]
+    },
+    {
+      "ref": "rust-vuln-wasmtime-gix@0.1.0",
+      "dependsOn": [
+        "gix-features@0.40.0",
+        "wasmtime@38.0.3"
+      ]
+    },
+    {
+      "ref": "rustc-demangle@0.1.26"
+    },
+    {
+      "ref": "rustc-hash@2.1.1"
+    },
+    {
+      "ref": "rustix@1.1.2",
+      "dependsOn": [
+        "bitflags@2.10.0",
+        "errno@0.3.14",
+        "libc@0.2.177",
+        "linux-raw-sys@0.11.0",
+        "windows-sys@0.60.2"
+      ]
+    },
+    {
+      "ref": "rustversion@1.0.22"
+    },
+    {
+      "ref": "ryu@1.0.20"
+    },
+    {
+      "ref": "semver@1.0.27",
+      "dependsOn": [
+        "serde@1.0.228",
+        "serde_core@1.0.228"
+      ]
+    },
+    {
+      "ref": "serde@1.0.228",
+      "dependsOn": [
+        "serde_core@1.0.228",
+        "serde_derive@1.0.228"
+      ]
+    },
+    {
+      "ref": "serde_core@1.0.228",
+      "dependsOn": [
+        "serde_derive@1.0.228"
+      ]
+    },
+    {
+      "ref": "serde_derive@1.0.228",
+      "dependsOn": [
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111"
+      ]
+    },
+    {
+      "ref": "serde_json@1.0.145",
+      "dependsOn": [
+        "itoa@1.0.15",
+        "memchr@2.7.6",
+        "ryu@1.0.20",
+        "serde@1.0.228",
+        "serde_core@1.0.228"
+      ]
+    },
+    {
+      "ref": "serde_spanned@0.6.9",
+      "dependsOn": [
+        "serde@1.0.228"
+      ]
+    },
+    {
+      "ref": "sha2@0.10.9",
+      "dependsOn": [
+        "cfg-if@1.0.4",
+        "cpufeatures@0.2.17",
+        "digest@0.10.7"
+      ]
+    },
+    {
+      "ref": "shlex@1.3.0"
+    },
+    {
+      "ref": "smallvec@1.15.1",
+      "dependsOn": [
+        "serde@1.0.228"
+      ]
+    },
+    {
+      "ref": "stable_deref_trait@1.2.1"
+    },
+    {
+      "ref": "syn@2.0.111",
+      "dependsOn": [
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "unicode-ident@1.0.22"
+      ]
+    },
+    {
+      "ref": "target-lexicon@0.13.3"
+    },
+    {
+      "ref": "termcolor@1.4.1",
+      "dependsOn": [
+        "winapi-util@0.1.11"
+      ]
+    },
+    {
+      "ref": "thiserror@1.0.69",
+      "dependsOn": [
+        "thiserror-impl@1.0.69"
+      ]
+    },
+    {
+      "ref": "thiserror@2.0.17",
+      "dependsOn": [
+        "thiserror-impl@1.0.69"
+      ]
+    },
+    {
+      "ref": "thiserror-impl@1.0.69",
+      "dependsOn": [
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111"
+      ]
+    },
+    {
+      "ref": "thiserror-impl@2.0.17",
+      "dependsOn": [
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111"
+      ]
+    },
+    {
+      "ref": "toml@0.8.23",
+      "dependsOn": [
+        "serde@1.0.228",
+        "serde_spanned@0.6.9",
+        "toml_datetime@0.6.11",
+        "toml_edit@0.22.27"
+      ]
+    },
+    {
+      "ref": "toml_datetime@0.6.11",
+      "dependsOn": [
+        "serde@1.0.228"
+      ]
+    },
+    {
+      "ref": "toml_edit@0.22.27",
+      "dependsOn": [
+        "indexmap@2.12.1",
+        "serde@1.0.228",
+        "serde_spanned@0.6.9",
+        "toml_datetime@0.6.11",
+        "toml_write@0.1.2",
+        "winnow@0.7.14"
+      ]
+    },
+    {
+      "ref": "toml_write@0.1.2"
+    },
+    {
+      "ref": "typenum@1.19.0"
+    },
+    {
+      "ref": "unicode-ident@1.0.22"
+    },
+    {
+      "ref": "unicode-width@0.2.2"
+    },
+    {
+      "ref": "unicode-xid@0.2.6"
+    },
+    {
+      "ref": "uuid@1.18.1",
+      "dependsOn": [
+        "js-sys@0.3.83",
+        "wasm-bindgen@0.2.106"
+      ]
+    },
+    {
+      "ref": "version_check@0.9.5"
+    },
+    {
+      "ref": "wasi@0.11.1+wasi-snapshot-preview1"
+    },
+    {
+      "ref": "wasip2@1.0.1+wasi-0.2.4",
+      "dependsOn": [
+        "wit-bindgen@0.46.0"
+      ]
+    },
+    {
+      "ref": "wasm-bindgen@0.2.106",
+      "dependsOn": [
+        "cfg-if@1.0.4",
+        "once_cell@1.21.3",
+        "rustversion@1.0.22",
+        "wasm-bindgen-macro@0.2.106",
+        "wasm-bindgen-shared@0.2.106"
+      ]
+    },
+    {
+      "ref": "wasm-bindgen-macro@0.2.106",
+      "dependsOn": [
+        "quote@1.0.42",
+        "wasm-bindgen-macro-support@0.2.106"
+      ]
+    },
+    {
+      "ref": "wasm-bindgen-macro-support@0.2.106",
+      "dependsOn": [
+        "bumpalo@3.19.0",
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111",
+        "wasm-bindgen-shared@0.2.106"
+      ]
+    },
+    {
+      "ref": "wasm-bindgen-shared@0.2.106",
+      "dependsOn": [
+        "unicode-ident@1.0.22"
+      ]
+    },
+    {
+      "ref": "wasm-encoder@0.239.0",
+      "dependsOn": [
+        "leb128fmt@0.1.0",
+        "wasmparser@0.239.0"
+      ]
+    },
+    {
+      "ref": "wasm-encoder@0.242.0",
+      "dependsOn": [
+        "leb128fmt@0.1.0",
+        "wasmparser@0.239.0"
+      ]
+    },
+    {
+      "ref": "wasmparser@0.239.0",
+      "dependsOn": [
+        "bitflags@2.10.0",
+        "hashbrown@0.15.5",
+        "indexmap@2.12.1",
+        "semver@1.0.27",
+        "serde@1.0.228"
+      ]
+    },
+    {
+      "ref": "wasmparser@0.242.0",
+      "dependsOn": [
+        "bitflags@2.10.0",
+        "indexmap@2.12.1",
+        "semver@1.0.27"
+      ]
+    },
+    {
+      "ref": "wasmprinter@0.239.0",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "termcolor@1.4.1",
+        "wasmparser@0.239.0"
+      ]
+    },
+    {
+      "ref": "wasmtime@38.0.3",
+      "dependsOn": [
+        "addr2line@0.25.1",
+        "anyhow@1.0.100",
+        "async-trait@0.1.89",
+        "bitflags@2.10.0",
+        "bumpalo@3.19.0",
+        "cc@1.2.48",
+        "cfg-if@1.0.4",
+        "encoding_rs@0.8.35",
+        "fxprof-processed-profile@0.8.1",
+        "gimli@0.32.3",
+        "hashbrown@0.15.5",
+        "indexmap@2.12.1",
+        "ittapi@0.4.0",
+        "libc@0.2.177",
+        "log@0.4.28",
+        "mach2@0.4.3",
+        "memfd@0.6.5",
+        "object@0.37.3",
+        "once_cell@1.21.3",
+        "postcard@1.1.3",
+        "pulley-interpreter@38.0.3",
+        "rayon@1.11.0",
+        "rustix@1.1.2",
+        "semver@1.0.27",
+        "serde@1.0.228",
+        "serde_derive@1.0.228",
+        "serde_json@1.0.145",
+        "smallvec@1.15.1",
+        "target-lexicon@0.13.3",
+        "wasm-encoder@0.239.0",
+        "wasmparser@0.239.0",
+        "wasmtime-environ@38.0.3",
+        "wasmtime-internal-cache@38.0.3",
+        "wasmtime-internal-component-macro@38.0.3",
+        "wasmtime-internal-component-util@38.0.3",
+        "wasmtime-internal-cranelift@38.0.3",
+        "wasmtime-internal-fiber@38.0.3",
+        "wasmtime-internal-jit-debug@38.0.3",
+        "wasmtime-internal-jit-icache-coherence@38.0.3",
+        "wasmtime-internal-math@38.0.3",
+        "wasmtime-internal-slab@38.0.3",
+        "wasmtime-internal-unwinder@38.0.3",
+        "wasmtime-internal-versioned-export-macros@38.0.3",
+        "wasmtime-internal-winch@38.0.3",
+        "wat@1.242.0",
+        "windows-sys@0.60.2"
+      ]
+    },
+    {
+      "ref": "wasmtime-environ@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "cpp_demangle@0.4.5",
+        "cranelift-bitset@0.125.4",
+        "cranelift-entity@0.125.4",
+        "gimli@0.32.3",
+        "indexmap@2.12.1",
+        "log@0.4.28",
+        "object@0.37.3",
+        "postcard@1.1.3",
+        "rustc-demangle@0.1.26",
+        "semver@1.0.27",
+        "serde@1.0.228",
+        "serde_derive@1.0.228",
+        "smallvec@1.15.1",
+        "target-lexicon@0.13.3",
+        "wasm-encoder@0.239.0",
+        "wasmparser@0.239.0",
+        "wasmprinter@0.239.0",
+        "wasmtime-internal-component-util@38.0.3"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-cache@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "base64@0.22.1",
+        "directories-next@2.0.0",
+        "log@0.4.28",
+        "postcard@1.1.3",
+        "rustix@1.1.2",
+        "serde@1.0.228",
+        "serde_derive@1.0.228",
+        "sha2@0.10.9",
+        "toml@0.8.23",
+        "windows-sys@0.60.2",
+        "zstd@0.13.3"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-component-macro@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111",
+        "wasmtime-internal-component-util@38.0.3",
+        "wasmtime-internal-wit-bindgen@38.0.3",
+        "wit-parser@0.239.0"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-component-util@38.0.3"
+    },
+    {
+      "ref": "wasmtime-internal-cranelift@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "cfg-if@1.0.4",
+        "cranelift-codegen@0.125.3",
+        "cranelift-control@0.125.4",
+        "cranelift-entity@0.125.4",
+        "cranelift-frontend@0.125.3",
+        "cranelift-native@0.125.3",
+        "gimli@0.32.3",
+        "itertools@0.14.0",
+        "log@0.4.28",
+        "object@0.37.3",
+        "pulley-interpreter@38.0.3",
+        "smallvec@1.15.1",
+        "target-lexicon@0.13.3",
+        "thiserror@1.0.69",
+        "wasmparser@0.239.0",
+        "wasmtime-environ@38.0.3",
+        "wasmtime-internal-math@38.0.3",
+        "wasmtime-internal-unwinder@38.0.3",
+        "wasmtime-internal-versioned-export-macros@38.0.3"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-fiber@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "cc@1.2.48",
+        "cfg-if@1.0.4",
+        "libc@0.2.177",
+        "rustix@1.1.2",
+        "wasmtime-internal-versioned-export-macros@38.0.3",
+        "windows-sys@0.60.2"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-jit-debug@38.0.3",
+      "dependsOn": [
+        "cc@1.2.48",
+        "object@0.37.3",
+        "rustix@1.1.2",
+        "wasmtime-internal-versioned-export-macros@38.0.3"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-jit-icache-coherence@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "cfg-if@1.0.4",
+        "libc@0.2.177",
+        "windows-sys@0.60.2"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-math@38.0.3",
+      "dependsOn": [
+        "libm@0.2.15"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-slab@38.0.3"
+    },
+    {
+      "ref": "wasmtime-internal-unwinder@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "cfg-if@1.0.4",
+        "cranelift-codegen@0.125.3",
+        "log@0.4.28",
+        "object@0.37.3"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-versioned-export-macros@38.0.3",
+      "dependsOn": [
+        "proc-macro2@1.0.103",
+        "quote@1.0.42",
+        "syn@2.0.111"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-winch@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "cranelift-codegen@0.125.3",
+        "gimli@0.32.3",
+        "log@0.4.28",
+        "object@0.37.3",
+        "target-lexicon@0.13.3",
+        "wasmparser@0.239.0",
+        "wasmtime-environ@38.0.3",
+        "wasmtime-internal-cranelift@38.0.3",
+        "winch-codegen@38.0.3"
+      ]
+    },
+    {
+      "ref": "wasmtime-internal-wit-bindgen@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "bitflags@2.10.0",
+        "heck@0.5.0",
+        "indexmap@2.12.1",
+        "wit-parser@0.239.0"
+      ]
+    },
+    {
+      "ref": "wast@242.0.0",
+      "dependsOn": [
+        "bumpalo@3.19.0",
+        "leb128fmt@0.1.0",
+        "memchr@2.7.6",
+        "unicode-width@0.2.2",
+        "wasm-encoder@0.239.0"
+      ]
+    },
+    {
+      "ref": "wat@1.242.0",
+      "dependsOn": [
+        "wast@242.0.0"
+      ]
+    },
+    {
+      "ref": "winapi@0.3.9",
+      "dependsOn": [
+        "winapi-i686-pc-windows-gnu@0.4.0",
+        "winapi-x86_64-pc-windows-gnu@0.4.0"
+      ]
+    },
+    {
+      "ref": "winapi-i686-pc-windows-gnu@0.4.0"
+    },
+    {
+      "ref": "winapi-util@0.1.11",
+      "dependsOn": [
+        "windows-sys@0.60.2"
+      ]
+    },
+    {
+      "ref": "winapi-x86_64-pc-windows-gnu@0.4.0"
+    },
+    {
+      "ref": "winch-codegen@38.0.3",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "cranelift-assembler-x64@0.125.4",
+        "cranelift-codegen@0.125.3",
+        "gimli@0.32.3",
+        "regalloc2@0.13.3",
+        "smallvec@1.15.1",
+        "target-lexicon@0.13.3",
+        "thiserror@1.0.69",
+        "wasmparser@0.239.0",
+        "wasmtime-environ@38.0.3",
+        "wasmtime-internal-cranelift@38.0.3",
+        "wasmtime-internal-math@38.0.3"
+      ]
+    },
+    {
+      "ref": "windows-link@0.2.1"
+    },
+    {
+      "ref": "windows-sys@0.60.2",
+      "dependsOn": [
+        "windows-targets@0.53.5"
+      ]
+    },
+    {
+      "ref": "windows-sys@0.61.2",
+      "dependsOn": [
+        "windows-link@0.2.1"
+      ]
+    },
+    {
+      "ref": "windows-targets@0.53.5",
+      "dependsOn": [
+        "windows-link@0.2.1",
+        "windows_aarch64_gnullvm@0.53.1",
+        "windows_aarch64_msvc@0.53.1",
+        "windows_i686_gnu@0.53.1",
+        "windows_i686_gnullvm@0.53.1",
+        "windows_i686_msvc@0.53.1",
+        "windows_x86_64_gnu@0.53.1",
+        "windows_x86_64_gnullvm@0.53.1",
+        "windows_x86_64_msvc@0.53.1"
+      ]
+    },
+    {
+      "ref": "windows_aarch64_gnullvm@0.53.1"
+    },
+    {
+      "ref": "windows_aarch64_msvc@0.53.1"
+    },
+    {
+      "ref": "windows_i686_gnu@0.53.1"
+    },
+    {
+      "ref": "windows_i686_gnullvm@0.53.1"
+    },
+    {
+      "ref": "windows_i686_msvc@0.53.1"
+    },
+    {
+      "ref": "windows_x86_64_gnu@0.53.1"
+    },
+    {
+      "ref": "windows_x86_64_gnullvm@0.53.1"
+    },
+    {
+      "ref": "windows_x86_64_msvc@0.53.1"
+    },
+    {
+      "ref": "winnow@0.7.14",
+      "dependsOn": [
+        "memchr@2.7.6"
+      ]
+    },
+    {
+      "ref": "wit-bindgen@0.46.0"
+    },
+    {
+      "ref": "wit-parser@0.239.0",
+      "dependsOn": [
+        "anyhow@1.0.100",
+        "id-arena@2.2.1",
+        "indexmap@2.12.1",
+        "log@0.4.28",
+        "semver@1.0.27",
+        "serde@1.0.228",
+        "serde_derive@1.0.228",
+        "serde_json@1.0.145",
+        "unicode-xid@0.2.6",
+        "wasmparser@0.239.0"
+      ]
+    },
+    {
+      "ref": "zstd@0.13.3",
+      "dependsOn": [
+        "zstd-safe@7.2.4"
+      ]
+    },
+    {
+      "ref": "zstd-safe@7.2.4",
+      "dependsOn": [
+        "zstd-sys@2.0.16+zstd.1.5.7"
+      ]
+    },
+    {
+      "ref": "zstd-sys@2.0.16+zstd.1.5.7",
+      "dependsOn": [
+        "cc@1.2.48",
+        "pkg-config@0.3.32"
+      ]
     }
   ]
 }
